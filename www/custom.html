@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Content</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="contentApp" class="custom-results">
+  <main ng-controller="customController">
+    <h1>Custom Content</h1>
+    <div ng-repeat="i in results" class="result-section">
+      <h3>{{i.subsection}}</h3>
+      <div ng-bind-html="trustAsHtml(i.content)"></div>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

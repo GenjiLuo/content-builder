@@ -1,0 +1,14 @@
+{
+  "name": "content-collection",
+  "description": "Build and customize content collections",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "alexabbott",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^2.3.2"
+  }
+}

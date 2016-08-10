@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Collection</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="contentApp">
+  <main ng-controller="mainController">
+    <div class="sidebar">
+      <section ng-repeat="item in content.sections">
+        <div class="section-title" ng-click="showSections()">{{item.section}}</div>
+        <div ng-repeat="sub in item.subsections" class="subsection-title" ng-click="showSubsection()">
+          {{sub.subsection}}
+        </div>
+      </section>
+    </div>
+    <div class="primary-content">
+      <h2 ng-show="!primaryContent.item.section">Content</h2>
+      <h2>{{primaryContent.item.section}}</h2>
+      <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}">
+        <h3>{{i.subsection}}</h3>
+        <div ng-bind-html="trustAsHtml(i.content)"></div>
+
+        <div class="add-custom" ng-click="addToCustom()">+</div>
+      </div>
+    </div>
+    <div class="custom-content">
+      <div class="custom-section" ng-repeat="part in custom">
+        <span class="remove-section" ng-click="removeSection(part)">-</span> {{part.i.subsection}}
+      </div>
+      <button class="show-link" ng-show="custom.length > 0" ng-click="showLink()">
+        Show Custom Link
+      </button>
+    </div>
+    <div class="link-modal" ng-show="modalActive === true">
+      <div class="close-modal" ng-click="modalActive = false">&times;</div>
+      <h3>Your custom link:</h3>
+      <p id="custom-link">{{link}}</p>
+      <!-- <button class="copy-link" ng-click="copyLink('custom-link')">
+        Copy Custom Link
+      </button> -->
+      <a href="{{link}}" target="_blank">
+        <button class="preview-link">
+          Preview Custom Page
+        </button>
+      </a>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
