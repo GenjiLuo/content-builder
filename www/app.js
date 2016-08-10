@@ -15,11 +15,11 @@ angular.module('contentApp', ['ngSanitize'])
         "subsections": [
           {
             "subsection": "Typography",
-            "content": "some typography content"
+            "content": "some typography content<br><iframe src='https://docs.google.com/presentation/d/1yTyEpqX3--enNQs5xWxl25ebEbmyrQnpsAmOlDahJZo/embed?start=false&loop=false&delayms=3000' frameborder='0' allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>"
           },
           {
             "subsection": "Colors",
-            "content": "some color content"
+            "content": "<p>Lots of text about some things and some other things</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>"
           }
         ]
       },
@@ -28,11 +28,11 @@ angular.module('contentApp', ['ngSanitize'])
         "subsections": [
           {
             "subsection": "Digital",
-            "content": "some digital ad content"
+            "content": "some digital ad content<br><iframe data-src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true' allowfullscreen='' src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true'></iframe>"
           },
           {
             "subsection": "Print",
-            "content": "some print ad content"
+            "content": "some print ad content<br><img src='https://storage.googleapis.com/doubleclick-prod/images/offset_comp_237030_1.95b375d5.rectangle-550x462.jpg'>"
           },
           {
             "subsection": "Email",
@@ -128,6 +128,18 @@ angular.module('contentApp', ['ngSanitize'])
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
 
+  function findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+          return i;
+      }
+    }
+    return -1;
+  }
+  Array.prototype.move = function (from, to) {
+    this.splice(to, 0, this.splice(from, 1)[0]);
+  };
+
   // create new array of subsection objects from original set of content data
   for (var i = 0; i < $scope.content.sections.length; i++) {
     for (var x = 0; x < $scope.content.sections[i].subsections.length; x++) {
@@ -148,21 +160,14 @@ angular.module('contentApp', ['ngSanitize'])
         $scope.results.push(obj);
       }
     }
+    // put results array in correct order
+    for (var c = 0; c < $scope.results.length; c++) {
+      $scope.results.move(c, findWithAttr(customContent, 'subsection', $scope.results[c].subsection));
+    }
   });
 
-  // put results array in correct order
-  function findWithAttr(array, attr, value) {
-      for(var i = 0; i < array.length; i += 1) {
-          if(array[i][attr] === value) {
-              return i;
-          }
-      }
-      return -1;
-  }
-  Array.prototype.move = function (from, to) {
-    this.splice(to, 0, this.splice(from, 1)[0]);
-  };
-  for (var c = 0; c < $scope.results.length; c++) {
-    $scope.results.move(c, findWithAttr(customContent, 'subsection', $scope.results[c].subsection));
-  }
+  custom = customContent;
+  result = $scope.results;
+  console.log('custom', customContent);
+  console.log('res', $scope.results);
 }]);
