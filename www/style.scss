@@ -46,7 +46,7 @@ html {
         .content-section {
           background: #f1f1f1;
           box-sizing: border-box;
-          height: 500px;
+          height: auto;
           margin: 5px 0;
           overflow: hidden;
           padding: 20px;
@@ -138,7 +138,7 @@ html {
   .result-section {
     background: #f1f1f1;
     box-sizing: border-box;
-    height: 500px;
+    height: auto;
     margin: 5px 0;
     overflow: hidden;
     padding: 20px;
@@ -146,15 +146,15 @@ html {
 
     iframe {
       display: block;
-      height: 25vw;
+      height: 36vw;
       margin: 10px auto;
-      width: 45vw;
+      width: 65vw;
     }
 
     img {
       display: block;
       margin: 10px auto;
-      width: 45vw;
+      width: 65vw;
     }
   }
 }

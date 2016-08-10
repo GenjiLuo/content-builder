@@ -36,7 +36,7 @@ angular.module('contentApp', ['ngSanitize'])
           },
           {
             "subsection": "Email",
-            "content": "some email ad content"
+            "content": "some email ad content<ul><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li></ul><strong>Bold text is cool</strong>"
           }
         ]
       },
@@ -45,7 +45,7 @@ angular.module('contentApp', ['ngSanitize'])
         "subsections": [
           {
             "subsection": "Baseball",
-            "content": "some baseball content"
+            "content": "some baseball content<br><iframe src='https://www.youtube.com/embed/6Joup252fR0' frameborder='0' allowfullscreen></iframe>"
           },
           {
             "subsection": "Basketball",
@@ -53,7 +53,7 @@ angular.module('contentApp', ['ngSanitize'])
           },
           {
             "subsection": "Soccer",
-            "content": "some soccer content"
+            "content": "some soccer content<br><iframe src='https://www.youtube.com/embed/mI2dDwWaNUY' frameborder='0' allowfullscreen></iframe>"
           }
         ]
       }
