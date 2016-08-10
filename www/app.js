@@ -90,7 +90,6 @@ angular.module('contentApp', ['ngSanitize'])
 
   // add an item to the custom objects array
   $scope.addToCustom = function() {
-    console.log(this);
     $scope.custom.push(this);
   };
 
@@ -165,9 +164,4 @@ angular.module('contentApp', ['ngSanitize'])
       $scope.results.move(c, findWithAttr(customContent, 'subsection', $scope.results[c].subsection));
     }
   });
-
-  custom = customContent;
-  result = $scope.results;
-  console.log('custom', customContent);
-  console.log('res', $scope.results);
 }]);
