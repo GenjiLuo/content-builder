@@ -1,4 +1,4 @@
-angular.module('contentApp', ['ngSanitize'])
+angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
 
 .config(['$locationProvider', function($locationProvider) {
   $locationProvider.html5Mode({
@@ -68,6 +68,10 @@ angular.module('contentApp', ['ngSanitize'])
   $scope.primaryContent = [];
   $scope.custom = [];
   $scope.link = '';
+
+  setInterval(function(){
+    console.log($scope.custom);
+  }, 2000);
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;

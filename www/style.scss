@@ -89,20 +89,29 @@ html {
         vertical-align: top;
         width: 15%;
 
-        .custom-section {
-          margin-bottom: 5px;
+        ul {
+          min-height: 150px;
+          padding: 0;
+          position: relative;
 
-          .remove-section {
-            background: #ff0000;
-            border-radius: 50%;
-            color: #fff;
-            cursor: pointer;
-            display: inline-block;
-            line-height: 15px;
-            margin-right: 10px;
-            padding: 0px 6px 2px 6px;
+          .custom-section {
+            list-style-type: none;
+            margin-bottom: 5px;
+            position: relative;
+
+            .remove-section {
+              background: #ff0000;
+              border-radius: 50%;
+              color: #fff;
+              cursor: pointer;
+              display: inline-block;
+              line-height: 15px;
+              margin-right: 10px;
+              padding: 0px 6px 2px 6px;
+            }
           }
         }
+
         .show-link {
           margin-top: 15px;
         }

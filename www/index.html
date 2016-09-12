@@ -26,9 +26,11 @@
       </div>
     </div>
     <div class="custom-content">
-      <div class="custom-section" ng-repeat="part in custom">
-        <span class="remove-section" ng-click="removeSection(part)">-</span> {{part.i.subsection}}
-      </div>
+      <ul sv-root sv-part="custom">
+        <li class="custom-section" ng-repeat="part in custom" sv-element>
+          <span class="remove-section" ng-click="removeSection(part)">-</span> <span>{{part.i.subsection}}</span>
+        </li>
+      </ul>
       <button class="show-link" ng-show="custom.length > 0" ng-click="showLink()">
         Show Custom Link
       </button>
@@ -49,6 +51,7 @@
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+  <script src="lib/ng-sortable-view.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
