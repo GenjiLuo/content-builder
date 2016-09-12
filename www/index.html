@@ -17,15 +17,17 @@
     </div>
     <div class="primary-content">
       <h2 ng-show="!primaryContent.item.section">Content</h2>
+      <p ng-show="!primaryContent.item.section" class="placeholder-text">Select content from the sidebar to start building a presentation</p>
       <h2>{{primaryContent.item.section}}</h2>
       <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}">
-        <h3>{{i.subsection}}</h3>
+        <h3 class="subsection-title">{{i.subsection}}</h3>
         <div ng-bind-html="trustAsHtml(i.content)"></div>
 
         <div class="add-custom" ng-click="addToCustom()">+</div>
       </div>
     </div>
     <div class="custom-content">
+      <h3 ng-show="custom.length > 0">Custom content</h3>
       <ul sv-root sv-part="custom">
         <li class="custom-section" ng-repeat="part in custom" sv-element>
           <span class="remove-section" ng-click="removeSection(part)">-</span> <span>{{part.i.subsection}}</span>

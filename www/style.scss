@@ -1,14 +1,24 @@
 html {
   margin: 0;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   body {
+    background: #f1f1f1;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow: hidden;
 
+    h1,
+    h2,
+    h3 {
+      font-weight: 400;
+    }
+
     main {
       .sidebar {
-        border-right: 2px solid #000;
         box-sizing: border-box;
         display: inline-block;
         float: left;
@@ -43,14 +53,24 @@ html {
           margin-left: 20px;
         }
 
+        .placeholder-text {
+          margin-left: 20px;
+        }
+
         .content-section {
-          background: #f1f1f1;
+          background: #fff;
+          box-shadow: 0 0 18px 2px rgba(0,0,0,0.2);
           box-sizing: border-box;
           height: auto;
-          margin: 5px 0;
+          margin: 0 auto 20px auto;
           overflow: hidden;
           padding: 20px;
           position: relative;
+          width: 95%;
+
+          .subsection-title {
+            margin-top: 0;
+          }
 
           iframe {
             display: block;
@@ -79,8 +99,6 @@ html {
         }
       }
       .custom-content {
-        background: #fff;
-        border-left: 2px solid #000;
         box-sizing: border-box;
         display: inline-block;
         height: 100vh;
@@ -90,7 +108,7 @@ html {
         width: 15%;
 
         ul {
-          min-height: 150px;
+          min-height: 50px;
           padding: 0;
           position: relative;
 
@@ -114,7 +132,17 @@ html {
         }
 
         .show-link {
+          background: #4285F4;
+          border: 2px;
+          color: #fff;
+          cursor: pointer;
           margin-top: 15px;
+          padding: 10px 20px;
+          transition: background 0.2s ease-out;
+
+          &:hover {
+            background: darken(#4285F4, 5%);
+          }
         }
       }
       .link-modal {
