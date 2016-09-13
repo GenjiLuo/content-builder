@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Content Collection</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-app="contentApp">
@@ -28,6 +28,7 @@
     </div>
     <div class="custom-content">
       <h3 ng-show="custom.length > 0 && showTitle === true" class="custom-content-title" ng-click="showTitle = false">{{customTitle}}</h3>
+      <i ng-show="custom.length > 0 && showTitle === true" class="material-icons" ng-click="showTitle = false">create</i>
       <input ng-show="custom.length > 0 && showTitle === false" class="custom-content-title-editor" ng-blur="showTitle = true" ng-model="customTitle"></input>
       <ul sv-root sv-part="custom">
         <li class="custom-section" ng-repeat="part in custom" sv-element>

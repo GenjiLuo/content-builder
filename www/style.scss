@@ -189,7 +189,15 @@ html {
         width: 17%;
 
         .custom-content-title {
-          margin-top: 0;
+          cursor: pointer;
+          display: inline;
+          margin: 0;
+        }
+
+        .material-icons{
+          color: $color-grey;
+          cursor: pointer;
+          font-size: 18px;
         }
 
         ul {

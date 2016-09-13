@@ -76,7 +76,6 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
   $scope.link = '';
   $scope.showTitle = true;
   $scope.customTitle = "Custom content";
-  console.log($scope.content);
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
@@ -109,7 +108,7 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
       $scope.link += $scope.custom[i].i.subsection + ',';
     }
     $scope.link = $scope.link.substring(0, $scope.link.length - 1);
-    $scope.link += ('&title=' + $scope.customTitle.replace(' ','-'));
+    $scope.link += ('&title=' + $scope.customTitle.replace(/ /g,'-'));
     $scope.modalActive = true;
   };
 
@@ -143,7 +142,7 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
 
   // set page title
   $scope.customTitle = "Custom content";
-  $scope.customTitle = $location.search().title.replace('-', ' ');
+  $scope.customTitle = $location.search().title.replace(/-/g, ' ');
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
