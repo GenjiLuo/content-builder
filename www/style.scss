@@ -74,39 +74,97 @@ html {
       }
     }
 
-    main {
-      .sidebar {
-        box-sizing: border-box;
+    header {
+      background: $color-blue;
+      color: $color-white;
+      height: 70px;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+
+      .hamburger {
+        cursor: pointer;
+        font-size: 32px;
+        margin: 20px 20px 0 18px;
+      }
+
+      .header-title {
         display: inline-block;
-        float: left;
-        height: 100vh;
-        padding: 20px;
-        vertical-align: top;
-        width: 15%;
+        margin-top: -25px;
+        vertical-align: middle;
+      }
+    }
 
-        section {
-          margin-bottom: 30px;
+    .sidebar {
+      @extend %transition;
+      background: $color-white;
+      box-sizing: border-box;
+      display: inline-block;
+      float: left;
+      height: 100vh;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: translate3d(-300px, 0, 0);
+      transition-property: transform;
+      vertical-align: top;
+      width: 250px;
+      z-index: 2;
 
-          .section-title {
-            cursor: pointer;
-            font-weight: 700;
-          }
-          .subsection-title {
-            cursor: pointer;
-            margin-left: 20px;
-          }
+      &.expanded {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .menu-title {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        box-sizing: border-box;
+        height: 70px;
+        margin-bottom: 20px;
+        padding: 25px 0 0 20px;
+      }
+
+      section {
+        margin-bottom: 30px;
+        padding-left: 20px;
+
+        .section-title {
+          cursor: pointer;
+          font-weight: 700;
+        }
+        .subsection-title {
+          cursor: pointer;
+          margin-left: 20px;
         }
       }
+    }
+
+    .overlay {
+      background: $color-black;
+      height: 100vh;
+      left: 0;
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: 1;
+    }
+
+    main {
+      margin: 70px 0;
+
       .primary-content {
         box-sizing: border-box;
         display: inline-block;
         float: left;
         height: 100vh;
+        margin-left: 10%;
         overflow: scroll;
-        padding-bottom: 30px;
+        padding-bottom: 90px;
         position: relative;
         vertical-align: top;
-        width: 67%;
+        width: 72%;
 
         h2 {
           margin-left: 20px;
@@ -239,7 +297,7 @@ html {
         text-align: center;
         top: 200px;
         transform: translateX(-50%);
-        z-index: 1;
+        z-index: 3;
 
         .close-modal {
           cursor: pointer;
@@ -270,27 +328,80 @@ html {
     max-width: 1144px;
     padding-bottom: 30px;
 
-    .result-section {
-      background: $color-white;
-      box-shadow: 0 15px 18px 2px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-      height: auto;
-      margin: 5px 0 -5px 0;
-      overflow: hidden;
-      padding: 20px;
-      width: 100%;
+    ul {
+      height: 50vw;
+      margin-top: 30px;
+      position: relative;
 
-      iframe {
-        display: block;
-        height: 36vw;
-        margin: 10px auto;
-        width: 65vw;
+      .result-section {
+        background: $color-white;
+        border: 1px solid rgba(0,0,0,0.2);
+        box-sizing: border-box;
+        height: 50vw;
+        list-style-type: none;
+        margin: 5px 0 -5px 0;
+        overflow: hidden;
+        padding: 20px;
+        position: absolute;
+        // transition: all 0.5s ease-out;
+        -webkit-transition: left 0.5s ease-out, top 0.5s ease-out, transform 0.5s ease-out;
+        width: 100%;
+
+        &:last-of-type {
+          box-shadow: 0 15px 18px 2px rgba(0,0,0,0.1);
+        }
+
+        &.card-hide {
+          left: 100vw !important;
+          top: -100vw !important;
+          transform: rotateZ(15deg);
+        }
+
+        iframe {
+          display: block;
+          height: 36vw;
+          margin: 10px auto;
+          width: 100%;
+        }
+
+        img {
+          display: block;
+          margin: 10px auto;
+          width: 65vw;
+        }
       }
+    }
+  }
+  .controls {
+    background: $color-blue;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 30px 0;
+    position: absolute;
+    width: 100%;
 
-      img {
-        display: block;
-        margin: 10px auto;
-        width: 65vw;
+    .controls-inner {
+      margin: 0 auto;
+      max-width: 1144px;
+
+      .btn-pre,
+      .btn-next {
+        color: $color-white;
+        cursor: pointer;
+        display: inline-block;
+
+        .material-icons {
+          vertical-align: top;
+        }
+
+        &.disable {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+      .btn-next {
+        float: right;
       }
     }
   }

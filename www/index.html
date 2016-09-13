@@ -5,16 +5,24 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body ng-app="contentApp">
-  <main ng-controller="mainController">
-    <div class="sidebar">
-      <section ng-repeat="item in content.sections">
-        <div class="section-title" ng-click="showSections()">{{item.section}}</div>
-        <div ng-repeat="sub in item.subsections" class="subsection-title" ng-click="showSubsection()">
-          {{sub.subsection}}
-        </div>
-      </section>
+<body ng-app="contentApp" ng-controller="mainController">
+  <header>
+    <i class="material-icons hamburger" ng-click="showMenu = true">menu</i>
+    <div class="header-title">Content Collection</div>
+  </header>
+  <div class="sidebar" ng-class="{expanded: showMenu === true}">
+    <div class="menu-title">
+      Menu
     </div>
+    <section ng-repeat="item in content.sections">
+      <div class="section-title" ng-click="showSections()">{{item.section}}</div>
+      <div ng-repeat="sub in item.subsections" class="subsection-title" ng-click="showSubsection()">
+        {{sub.subsection}}
+      </div>
+    </section>
+  </div>
+  <div class="overlay" ng-show="showMenu === true" ng-click="showMenu = false"></div>
+  <main>
     <div class="primary-content">
       <h2 ng-show="!primaryContent.item.section">Content</h2>
       <p ng-show="!primaryContent.item.section" class="placeholder-text">Select content from the sidebar to start building a presentation</p>
@@ -56,6 +64,8 @@
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-touch.js"></script>
+  <script src="lib/angular-carousel.js"></script>
   <script src="lib/ng-sortable-view.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>

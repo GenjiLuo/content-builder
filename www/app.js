@@ -90,15 +90,17 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
     $scope.primaryContent = this;
     location.hash = "#";
     document.querySelector('.primary-content').scrollTop = 0;
+    $scope.showMenu = false;
   };
 
   // show the parent section in the main content area and scroll down to subsection anchor
   $scope.showSubsection = function() {
     var me = this;
     $scope.primaryContent = this;
-    $timeout(function(){
-      location.hash = "#" + me.sub.subsection.toLowerCase();
-    });
+    $scope.showMenu = false;
+    // $timeout(function(){
+    //   location.hash = "#" + me.sub.subsection.toLowerCase();
+    // });
   };
 
   // add an item to the custom objects array
@@ -134,6 +136,8 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
 
 .controller('customController', ['$scope', '$location', '$sce', 'dataObject', function($scope, $location, $sce, dataObject) {
   'use strict';
+
+  $scope.index = 1;
 
   $scope.content = dataObject;
   var subsections = [];
