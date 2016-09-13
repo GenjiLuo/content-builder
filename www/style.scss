@@ -1,3 +1,41 @@
+// Mixins
+@mixin mobile {
+  @media (min-width: #{$screen-xs}) {
+      @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$screen-sm}) {
+      @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$screen-md}) {
+      @content;
+  }
+}
+
+@mixin monitor {
+  @media (min-width: #{$screen-lg}) {
+      @content;
+  }
+}
+
+%transition {
+  transition: 0.2s ease-out;
+}
+
+// Variables
+$color-white: #fff;
+$color-black: #000;
+$color-grey-light: #f2f2f2;
+$color-grey: #bbb;
+$color-red-dark: #D23F31;
+$color-blue: #4285F4;
+
+// Main styling
 html {
   margin: 0;
 
@@ -6,7 +44,7 @@ html {
   }
 
   body {
-    background: #f1f1f1;
+    background: $color-grey-light;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow: hidden;
@@ -17,6 +55,25 @@ html {
       font-weight: 400;
     }
 
+    .button {
+      @extend %transition;
+      background: $color-blue;
+      border: 2px;
+      color: $color-white;
+      cursor: pointer;
+      font-size: 13px;
+      margin-top: 15px;
+      padding: 10px 20px;
+      transition-property: background;
+
+      &:hover {
+        background: darken($color-blue, 5%);
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+
     main {
       .sidebar {
         box-sizing: border-box;
@@ -25,7 +82,7 @@ html {
         height: 100vh;
         padding: 20px;
         vertical-align: top;
-        width: 19%;
+        width: 15%;
 
         section {
           margin-bottom: 30px;
@@ -41,13 +98,15 @@ html {
         }
       }
       .primary-content {
+        box-sizing: border-box;
         display: inline-block;
         float: left;
         height: 100vh;
         overflow: scroll;
+        padding-bottom: 30px;
         position: relative;
         vertical-align: top;
-        width: 65%;
+        width: 67%;
 
         h2 {
           margin-left: 20px;
@@ -58,8 +117,8 @@ html {
         }
 
         .content-section {
-          background: #fff;
-          box-shadow: 0 0 18px 2px rgba(0,0,0,0.2);
+          background: $color-white;
+          box-shadow: 0 0 18px 2px rgba(0,0,0,0.1);
           box-sizing: border-box;
           height: auto;
           margin: 0 auto 20px auto;
@@ -68,8 +127,17 @@ html {
           position: relative;
           width: 95%;
 
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
           .subsection-title {
             margin-top: 0;
+          }
+
+          .content-main {
+            box-sizing: border-box;
+            padding-right: 80px;
           }
 
           iframe {
@@ -86,15 +154,23 @@ html {
           }
 
           .add-custom {
-            background: #0c6;
+            @extend %transition;
+            background: $color-red-dark;
             border-radius: 50%;
+            box-shadow: 0 0 7px 2px rgba(0,0,0,0.2);
             bottom: 20px;
-            color: #fff;
+            color: $color-white;
             cursor: pointer;
             font-size: 24px;
             padding: 10px 20px;
             position: absolute;
             right: 20px;
+            transition-property: box-shadow, transform;
+
+            &:hover {
+              box-shadow: 0 0 12px 3px rgba(0,0,0,0.22);
+              transform: scale(1.04);
+            }
           }
         }
       }
@@ -105,7 +181,11 @@ html {
         overflow: scroll;
         padding: 20px;
         vertical-align: top;
-        width: 15%;
+        width: 17%;
+
+        .custom-content-title {
+          margin-top: 0;
+        }
 
         ul {
           min-height: 50px;
@@ -119,34 +199,25 @@ html {
             position: relative;
 
             .remove-section {
-              background: #ff0000;
-              border-radius: 50%;
-              color: #fff;
+              @extend %transition;
+              color: $color-grey;
               cursor: pointer;
               display: inline-block;
+              font-size: 20px;
               line-height: 15px;
-              margin-right: 10px;
-              padding: 0px 6px 2px 6px;
+              padding: 3px 8px 2px 3px;
+              transition-property: color;
+              vertical-align: top;
+
+              &:hover {
+                color: darken($color-grey, 10%);
+              }
             }
-          }
-        }
-
-        .show-link {
-          background: #4285F4;
-          border: 2px;
-          color: #fff;
-          cursor: pointer;
-          margin-top: 15px;
-          padding: 10px 20px;
-          transition: background 0.2s ease-out;
-
-          &:hover {
-            background: darken(#4285F4, 5%);
           }
         }
       }
       .link-modal {
-        background: #fff;
+        background: $color-white;
         box-shadow: 0 0 11px 2px rgba(0,0,0,0.3);
         box-sizing: border-box;
         left: 50%;
@@ -155,13 +226,24 @@ html {
         text-align: center;
         top: 200px;
         transform: translateX(-50%);
+        z-index: 1;
 
         .close-modal {
           cursor: pointer;
+          font-size: 24px;
           position: absolute;
           right: 20px;
           top: 10px;
         }
+      }
+      .overlay {
+        background: $color-white;
+        height: 100vh;
+        left: 0;
+        opacity: 0.7;
+        position: absolute;
+        top: 0;
+        width: 100vw;
       }
     }
   }
@@ -170,29 +252,33 @@ html {
 .custom-results {
   overflow: auto;
 
-  h1 {
-    margin-left: 20px;
-  }
-  .result-section {
-    background: #f1f1f1;
-    box-sizing: border-box;
-    height: auto;
-    margin: 5px 0;
-    overflow: hidden;
-    padding: 20px;
-    width: 100%;
+  main {
+    margin: 0 auto;
+    max-width: 1144px;
+    padding-bottom: 30px;
 
-    iframe {
-      display: block;
-      height: 36vw;
-      margin: 10px auto;
-      width: 65vw;
-    }
+    .result-section {
+      background: $color-white;
+      box-shadow: 0 15px 18px 2px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      height: auto;
+      margin: 5px 0 -5px 0;
+      overflow: hidden;
+      padding: 20px;
+      width: 100%;
 
-    img {
-      display: block;
-      margin: 10px auto;
-      width: 65vw;
+      iframe {
+        display: block;
+        height: 36vw;
+        margin: 10px auto;
+        width: 65vw;
+      }
+
+      img {
+        display: block;
+        margin: 10px auto;
+        width: 65vw;
+      }
     }
   }
 }

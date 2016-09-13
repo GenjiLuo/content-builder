@@ -21,19 +21,19 @@
       <h2>{{primaryContent.item.section}}</h2>
       <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}">
         <h3 class="subsection-title">{{i.subsection}}</h3>
-        <div ng-bind-html="trustAsHtml(i.content)"></div>
+        <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
 
         <div class="add-custom" ng-click="addToCustom()">+</div>
       </div>
     </div>
     <div class="custom-content">
-      <h3 ng-show="custom.length > 0">Custom content</h3>
+      <h3 ng-show="custom.length > 0" class="custom-content-title">Custom content</h3>
       <ul sv-root sv-part="custom">
         <li class="custom-section" ng-repeat="part in custom" sv-element>
-          <span class="remove-section" ng-click="removeSection(part)">-</span> <span>{{part.i.subsection}}</span>
+          <span class="remove-section" ng-click="removeSection(part)">&times;</span> <span>{{part.i.subsection}}</span>
         </li>
       </ul>
-      <button class="show-link" ng-show="custom.length > 0" ng-click="showLink()">
+      <button class="show-link button" ng-show="custom.length > 0" ng-click="showLink()">
         Show Custom Link
       </button>
     </div>
@@ -45,11 +45,12 @@
         Copy Custom Link
       </button> -->
       <a href="{{link}}" target="_blank">
-        <button class="preview-link">
+        <button class="preview-link button">
           Preview Custom Page
         </button>
       </a>
     </div>
+    <div class="overlay" ng-show="modalActive === true" ng-click="modalActive = false"></div>
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>

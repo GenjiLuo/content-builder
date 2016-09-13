@@ -8,7 +8,9 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
 }])
 
 .run(['$location', function($location) {
-  $location.path('');
+  if ($location.path() != '/custom.html') {
+    $location.path('');
+  }
 }])
 
 .factory('dataObject', function(){
