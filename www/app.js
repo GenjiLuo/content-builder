@@ -74,6 +74,9 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
   $scope.primaryContent = [];
   $scope.custom = [];
   $scope.link = '';
+  $scope.showTitle = true;
+  $scope.customTitle = "Custom content";
+  console.log($scope.content);
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
@@ -106,11 +109,19 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
       $scope.link += $scope.custom[i].i.subsection + ',';
     }
     $scope.link = $scope.link.substring(0, $scope.link.length - 1);
+    $scope.link += ('&title=' + $scope.customTitle.replace(' ','-'));
     $scope.modalActive = true;
   };
 
   // remove an item from the custom array
   $scope.removeSection = function(item) {
+    for (var n = 0; n < $scope.content.sections.length; n++) {
+      for (var x = 0; x < $scope.content.sections[n].subsections.length; x++) {
+        if ($scope.content.sections[n].subsections[x].subsection === item.i.subsection) {
+          $scope.content.sections[n].subsections[x].disabled = false;
+        }
+      }
+    }
     var index = $scope.custom.indexOf(item);
     $scope.custom.splice(index, 1);
   };
@@ -129,6 +140,10 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
   var subsections = [];
   var customContent = [];
   $scope.results = [];
+
+  // set page title
+  $scope.customTitle = "Custom content";
+  $scope.customTitle = $location.search().title.replace('-', ' ');
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;

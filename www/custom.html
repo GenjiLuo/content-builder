@@ -7,7 +7,7 @@
 </head>
 <body ng-app="contentApp" class="custom-results">
   <main ng-controller="customController">
-    <h1>Custom Content</h1>
+    <h1>{{customTitle}}</h1>
     <div ng-repeat="i in results" class="result-section">
       <h3>{{i.subsection}}</h3>
       <div ng-bind-html="trustAsHtml(i.content)"></div>
