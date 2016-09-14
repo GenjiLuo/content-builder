@@ -1,4 +1,4 @@
-angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScroll'])
+angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScroll', 'ngTouch'])
 
 .config(['$locationProvider', function($locationProvider) {
   'use strict';
@@ -10,6 +10,8 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
 
 .run(['$location', function($location) {
   'use strict';
+  FastClick.attach(document.body);
+  console.log('testing and stuff and more stuff and other stuff');
   if ($location.path() != '/custom.html') {
     $location.path('');
   }

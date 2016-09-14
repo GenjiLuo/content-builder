@@ -2,15 +2,16 @@
 <html>
 <head>
   <title>Custom Content</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="contentApp" class="custom-results" ng-controller="customController">
   <main>
-    <ul>
+    <ul ng-swipe-left="index = index > 1 ? index - 1 : 1" ng-swipe-right="index = index < results.length ? index + 1 : results.length">
       <li ng-repeat="i in results" class="result-section" ng-class="{'card-hide': index  > $index + 1}" ng-style="{left: 3 * $index + 'px', top: -3 * $index + 'px', 'z-index': (results.length - $index)}">
-        <h3>{{i.subsection}}</h3>
-        <div ng-bind-html="trustAsHtml(i.content)"></div>
+        <h3 class="content-header">{{i.subsection}}</h3>
+        <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
       </li>
     </ul>
   </main>
@@ -20,10 +21,9 @@
       <div class="btn-next" ng-click="index = index < results.length ? index + 1 : results.length" ng-class="{disable: index === results.length}">Next <i class="material-icons">arrow_forward</i></div>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
-  <script src="lib/angular-smooth-scroll.js"></script>
-  <script src="lib/ng-sortable-view.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-touch.min.js"></script>
+  <script src="js/all.min.js"></script>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>Content Collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="contentApp" ng-controller="mainController">
   <header>
@@ -59,10 +60,9 @@
     </div>
     <div class="overlay" ng-show="modalActive === true" ng-click="modalActive = false"></div>
   </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
-  <script src="lib/angular-smooth-scroll.js"></script>
-  <script src="lib/ng-sortable-view.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-touch.min.js"></script>
+  <script src="js/all.min.js"></script>
 </body>
 </html>

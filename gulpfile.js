@@ -1,13 +1,18 @@
 var gulp = require('gulp'),
+    concat = require('gulp-concat'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
+    uglify = require('gulp-uglify'),
     prefix = require('gulp-autoprefixer');
 
 var paths = {
-    styles: {
+    files: {
         src: './www/',
-        files: './www/*.scss',
-        dest: './www'
+        styles: './www/css/',
+        sass: './www/css/*.scss',
+        scripts: './www/js/',
+        js: './www/js/src/*.js',
+        vendor: './www/js/lib/*.js'
     }
 }
 
@@ -21,11 +26,11 @@ gulp.task('connect', function () {
 });
 
 gulp.task('sass', function (){
-    gulp.src(paths.styles.files)
+    gulp.src(paths.files.sass)
     .pipe(sass({
         outputStyle: 'compressed',
         sourceComments: 'map',
-        includePaths : [paths.styles.src]
+        includePaths : [paths.files.sass]
     }))
     .on('error', function(err){
         displayError(err);
@@ -33,7 +38,29 @@ gulp.task('sass', function (){
     .pipe(prefix(
         'last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
     ))
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(gulp.dest(paths.files.styles))
+});
+
+gulp.task('concat', function (){
+    return gulp.src([paths.files.vendor, './www/js/app.js'])
+        .pipe(concat('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.files.scripts))
+});
+
+gulp.task('watch', function (){
+    gulp.watch(paths.files.sass, ['sass'])
+    .on('change', function(evt) {
+        console.log(
+            '[watcher] File ' + evt.path.replace(/.*(?=scss)/,'') + ' was ' + evt.type + ', compiling...'
+        );
+    });
+    gulp.watch(paths.files.js, ['concat'])
+    .on('change', function(evt) {
+        console.log(
+            '[watcher] File ' + evt.path.replace(/.*(?=js)/,'') + ' was ' + evt.type + ', compiling...'
+        );
+    });
 });
 
 var displayError = function(error) {
@@ -46,11 +73,5 @@ var displayError = function(error) {
     console.error(errorString);
 }
 
-gulp.task('default', ['sass', 'connect'], function() {
-    gulp.watch(paths.styles.files, ['sass'])
-    .on('change', function(evt) {
-        console.log(
-            '[watcher] File ' + evt.path.replace(/.*(?=scss)/,'') + ' was ' + evt.type + ', compiling...'
-        );
-    });
+gulp.task('default', ['sass', 'connect', 'concat', 'watch'], function() {
 });
