@@ -1,4 +1,4 @@
-angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
+angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScroll'])
 
 .config(['$locationProvider', function($locationProvider) {
   'use strict';
@@ -72,7 +72,7 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
   return content;
 })
 
-.controller('mainController', ['$scope', '$timeout', '$location', '$sce', 'dataObject', function($scope, $timeout, $location, $sce, dataObject) {
+.controller('mainController', ['$scope', '$timeout', '$location', '$sce', 'dataObject', 'smoothScroll', function($scope, $timeout, $location, $sce, dataObject, smoothScroll) {
   'use strict';
 
   $scope.content = dataObject;
@@ -98,9 +98,19 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view'])
     var me = this;
     $scope.primaryContent = this;
     $scope.showMenu = false;
-    // $timeout(function(){
-    //   location.hash = "#" + me.sub.subsection.toLowerCase();
-    // });
+
+    // wait for menu to close and new content to load before smooth scrolling to subsection
+    setTimeout(function(){
+      var element = document.getElementById(me.sub.subsection.toLowerCase());
+
+      var options = {
+          duration: 700,
+          easing: 'easeInQuad',
+          offset: 80,
+          containerId: 'primary-content'
+      }
+      smoothScroll(element, options);
+    }, 300);
   };
 
   // add an item to the custom objects array

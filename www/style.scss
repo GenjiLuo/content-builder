@@ -32,8 +32,12 @@ $color-white: #fff;
 $color-black: #000;
 $color-grey-light: #f2f2f2;
 $color-grey: #bbb;
+$color-grey-lightish: #e2e2e2;
 $color-red-dark: #D23F31;
 $color-blue: #4285F4;
+$color-green: #77C159;
+$color-green-dark: #6ab344;
+
 
 // Main styling
 html {
@@ -57,7 +61,7 @@ html {
 
     .button {
       @extend %transition;
-      background: $color-blue;
+      background: $color-green;
       border: 2px;
       color: $color-white;
       cursor: pointer;
@@ -67,7 +71,7 @@ html {
       transition-property: background;
 
       &:hover {
-        background: darken($color-blue, 5%);
+        background: darken($color-green, 5%);
       }
       &:focus {
         outline: 0;
@@ -75,7 +79,8 @@ html {
     }
 
     header {
-      background: $color-blue;
+      background: $color-green;
+      box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
       color: $color-white;
       height: 70px;
       left: 0;
@@ -118,11 +123,15 @@ html {
       }
 
       .menu-title {
-        border-bottom: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
         box-sizing: border-box;
+        color: darken($color-grey, 15%);
+        font-size: 22px;
+        font-weight: 700;
         height: 70px;
         margin-bottom: 20px;
         padding: 25px 0 0 20px;
+        text-transform: uppercase;
       }
 
       section {
@@ -130,12 +139,29 @@ html {
         padding-left: 20px;
 
         .section-title {
+          @extend %transition;
           cursor: pointer;
+          font-size: 13px;
           font-weight: 700;
+          margin-bottom: 13px;
+          transition-property: color;
+
+          &.highlight,
+          &:hover {
+            color: $color-green-dark;
+          }
         }
         .subsection-title {
+          @extend %transition;
           cursor: pointer;
-          margin-left: 20px;
+          font-size: 13px;
+          margin: 10px 0 0 20px;
+          transition-property: color;
+
+          &.highlight,
+          &:hover {
+            color: $color-green-dark;
+          }
         }
       }
     }
@@ -166,11 +192,14 @@ html {
         vertical-align: top;
         width: 72%;
 
-        h2 {
+        .content-title {
+          color: $color-green-dark;
+          font-size: 22px;
           margin-left: 20px;
         }
 
         .placeholder-text {
+          font-size: 18px;
           margin-left: 20px;
         }
 
@@ -247,6 +276,7 @@ html {
         width: 17%;
 
         .custom-content-title {
+          color: $color-green-dark;
           cursor: pointer;
           display: inline;
           margin: 0;
@@ -264,10 +294,17 @@ html {
           position: relative;
 
           .custom-section {
+            @extend %transition;
+            box-sizing: border-box;
             cursor: move;
             list-style-type: none;
-            margin-bottom: 5px;
+            padding: 5px;
             position: relative;
+            transition-property: background;
+
+            &:hover {
+              background: $color-grey-lightish;
+            }
 
             .remove-section {
               @extend %transition;
@@ -308,10 +345,10 @@ html {
         }
       }
       .overlay {
-        background: $color-white;
+        background: $color-black;
         height: 100vh;
         left: 0;
-        opacity: 0.7;
+        opacity: 0.5;
         position: absolute;
         top: 0;
         width: 100vw;
@@ -329,15 +366,15 @@ html {
     padding-bottom: 30px;
 
     ul {
-      height: 50vw;
-      margin-top: 30px;
+      height: 46vw;
+      margin-top: 20px;
       position: relative;
 
       .result-section {
         background: $color-white;
         border: 1px solid rgba(0,0,0,0.2);
         box-sizing: border-box;
-        height: 50vw;
+        height: 46vw;
         list-style-type: none;
         margin: 5px 0 -5px 0;
         overflow: hidden;
@@ -373,13 +410,14 @@ html {
     }
   }
   .controls {
-    background: $color-blue;
+    background: $color-green;
     bottom: 0;
     left: 0;
     margin: 0 auto;
     padding: 30px 0;
     position: absolute;
     width: 100%;
+    z-index: 1;
 
     .controls-inner {
       margin: 0 auto;

@@ -4,25 +4,15 @@
   <title>Custom Content</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- <link rel="stylesheet" type="text/css" href="lib/angular-carousel.css"> -->
 </head>
 <body ng-app="contentApp" class="custom-results" ng-controller="customController">
   <main>
-    <!-- <h1>{{customTitle}}</h1> -->
-    <!-- <ul rn-carousel rn-carousel-controls>
-      <li ng-repeat="i in results" class="result-section">
-        <h3>{{i.subsection}}</h3>
-        <div ng-bind-html="trustAsHtml(i.content)"></div>
-      </li>
-    </ul> -->
-
     <ul>
       <li ng-repeat="i in results" class="result-section" ng-class="{'card-hide': index  > $index + 1}" ng-style="{left: 3 * $index + 'px', top: -3 * $index + 'px', 'z-index': (results.length - $index)}">
         <h3>{{i.subsection}}</h3>
         <div ng-bind-html="trustAsHtml(i.content)"></div>
       </li>
     </ul>
-
   </main>
   <div class="controls">
     <div class="controls-inner">
@@ -32,8 +22,7 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-touch.js"></script>
-  <script src="lib/angular-carousel.js"></script>
+  <script src="lib/angular-smooth-scroll.js"></script>
   <script src="lib/ng-sortable-view.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
