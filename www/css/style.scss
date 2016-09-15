@@ -70,6 +70,7 @@ html {
       margin-top: 15px;
       padding: 10px 20px;
       transition-property: background;
+      width: 180px;
 
       &:hover {
         background: darken($color-green, 5%);
@@ -100,6 +101,34 @@ html {
         display: inline-block;
         margin-top: -25px;
         vertical-align: middle;
+      }
+
+      .g-signin2 {
+        display: inline-block;
+        float: right;
+        margin: 17px 20px 0 0;
+      }
+
+      .sign-out {
+        color: $color-white;
+        display: none;
+        float: right;
+        margin: 25px 20px 0 0;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .user-image {
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        float: right;
+        height: 40px;
+        margin: 15px 20px 0 0;
+        width: 40px;
       }
     }
 

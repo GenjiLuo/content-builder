@@ -1847,6 +1847,8 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
   $scope.customTitle = "Custom presentation";
   $scope.showExpanded = '';
 
+  console.log($scope.content);
+
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
 
@@ -1923,6 +1925,43 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
     var index = $scope.custom.indexOf(item);
     $scope.custom.splice(index, 1);
   };
+
+  $scope.saveCollection = function() {
+    var newCollection = {};
+    newCollection.title = $scope.customTitle;
+    newCollection.slides = $scope.custom;
+    newCollection.link = 'custom.html?custom=';
+    for (var n = 0; n < $scope.custom.length; n++) {
+      newCollection.link += ($scope.custom[n].i.subsection + ',');
+    }
+    newCollection.link += ('&title=' + $scope.customTitle.replace(/ /g,'-'));
+    $scope.userCollections.push(newCollection);
+    console.log('new', newCollection);
+    console.log($scope.userCollections);
+  };
+
+  $scope.userCollections = [
+    {
+      title: 'Presentation 1',
+      slides: [
+        $scope.content.sections[0].subsections[0],
+        $scope.content.sections[0].subsections[1],
+        $scope.content.sections[1].subsections[1],
+        $scope.content.sections[2].subsections[2]
+      ],
+      link: 'custom.html?custom=' + $scope.content.sections[0].subsections[0].subsection + ',' + $scope.content.sections[0].subsections[1] + ',' + $scope.content.sections[1].subsections[1] + ',' + $scope.content.sections[2].subsections[2] + '&title=Presentation-1'
+    },
+    {
+      title: 'Custom 2',
+      slides: [
+        $scope.content.sections[2].subsections[2],
+        $scope.content.sections[1].subsections[1],
+        $scope.content.sections[2].subsections[3],
+        $scope.content.sections[0].subsections[0]
+      ],
+      link: 'custom.html?custom=' + $scope.content.sections[2].subsections[2].subsection + ',' + $scope.content.sections[1].subsections[1] + ',' + $scope.content.sections[2].subsections[3] + ',' + $scope.content.sections[0].subsections[0] + '&title=Custom-2'
+    }
+  ];
 
 }])
 

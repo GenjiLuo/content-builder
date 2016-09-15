@@ -3,8 +3,10 @@
 <head>
   <title>Content Collection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="117016818221-ho9ek4mq6l078do4klfol40hcra5srp7.apps.googleusercontent.com">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body ng-app="contentApp" ng-controller="mainController">
 
@@ -12,6 +14,9 @@
   <header>
     <i class="material-icons hamburger" ng-click="showMenu = true">menu</i>
     <div class="header-title">Content Collection</div>
+    <img src="" class="user-image">
+    <a href="#" onclick="signOut();" class="sign-out">Sign out</a>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
   </header>
 
   <!-- Content nav sidebar menu -->
@@ -77,6 +82,9 @@
       <button class="show-link button" ng-show="custom.length > 0" ng-click="showLink()">
         Show Custom Link
       </button>
+      <button class="save button" ng-show="custom.length > 0" ng-click="saveCollection()">
+        Save Collection
+      </button>
     </div>
 
     <!-- Modal that shows link to custom presentation -->
@@ -98,5 +106,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-touch.min.js"></script>
   <script src="js/all.min.js"></script>
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+
+      document.querySelector('.g-signin2').style.display = 'none';
+      document.querySelector('.sign-out').style.display = 'inline-block';
+      document.querySelector('.user-image').style.display = 'inline-block';
+      document.querySelector('.user-image').setAttribute('src', profile.getImageUrl());
+    }
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      document.querySelector('.g-signin2').style.display = 'inline-block';
+      document.querySelector('.sign-out').style.display = 'none';
+      document.querySelector('.user-image').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
