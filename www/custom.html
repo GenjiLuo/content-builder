@@ -6,10 +6,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body ng-app="contentApp" class="custom-results" ng-controller="customController">
+<body ng-app="contentApp" class="custom-results" ng-controller="customController" ng-keydown="key($event)">
+  <div class="fullscreen" ng-click="requestFullScreen()">
+    <i class="material-icons">fullscreen</i>
+  </div>
   <main>
     <ul ng-swipe-left="index = index > 1 ? index - 1 : 1" ng-swipe-right="index = index < results.length ? index + 1 : results.length">
-      <li ng-repeat="i in results" class="result-section" ng-class="{'card-hide': index  > $index + 1}" ng-style="{left: 3 * $index + 'px', top: -3 * $index + 'px', 'z-index': (results.length - $index)}">
+      <li ng-repeat="i in results" class="result-section" ng-class="{'card-hide': index  > $index + 1}" ng-style="{left: 0 * $index + 'px', top: 0 * $index + 'px', 'z-index': (results.length - $index)}">
         <h3 class="content-header">{{i.subsection}}</h3>
         <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
       </li>
@@ -17,8 +20,8 @@
   </main>
   <div class="controls">
     <div class="controls-inner">
-      <div class="btn-pre" ng-click="index = index > 1 ? index - 1 : 1" ng-class="{disable: index === 1}"><i class="material-icons">arrow_back</i> Previous</div>
-      <div class="btn-next" ng-click="index = index < results.length ? index + 1 : results.length" ng-class="{disable: index === results.length}">Next <i class="material-icons">arrow_forward</i></div>
+      <div class="btn-pre" ng-click="goPrev()" ng-class="{disable: index === 1}"><i class="material-icons">arrow_back</i> Previous</div>
+      <div class="btn-next" ng-click="goNext()" ng-class="{disable: index === results.length}">Next <i class="material-icons">arrow_forward</i></div>
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>

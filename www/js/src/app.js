@@ -11,7 +11,6 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
 .run(['$location', function($location) {
   'use strict';
   FastClick.attach(document.body);
-  console.log('testing and stuff and more stuff and other stuff');
   if ($location.path() != '/custom.html') {
     $location.path('');
   }
@@ -26,11 +25,13 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
         subsections: [
           {
             subsection: "Typography",
-            content: "some typography content<br><iframe src='https://docs.google.com/presentation/d/1yTyEpqX3--enNQs5xWxl25ebEbmyrQnpsAmOlDahJZo/embed?start=false&loop=false&delayms=3000' frameborder='0' allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>"
+            content: "some typography content<br><iframe src='https://docs.google.com/presentation/d/1yTyEpqX3--enNQs5xWxl25ebEbmyrQnpsAmOlDahJZo/embed?start=false&loop=false&delayms=3000' frameborder='0' allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>",
+            notes: "Typography Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
             subsection: "Colors",
-            content: "<p>Lots of text about some things and some other things</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>"
+            content: "<p>Lots of text about some things and some other things</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>",
+            notes: "Colors Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           }
         ]
       },
@@ -39,15 +40,18 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
         subsections: [
           {
             subsection: "Digital",
-            content: "some digital ad content<br><iframe data-src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true' allowfullscreen='' src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true'></iframe>"
+            content: "some digital ad content<br><iframe data-src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true' allowfullscreen='' src='//docs.google.com/gview?url=https://storage.googleapis.com/doubleclick-prod/documents/Programmatic_Direct_Infographic.pdf&amp;embedded=true'></iframe>",
+            notes: "Digital Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
             subsection: "Print",
-            content: "some print ad content<br><img src='https://storage.googleapis.com/doubleclick-prod/images/offset_comp_237030_1.95b375d5.rectangle-550x462.jpg'>"
+            content: "some print ad content<br><img src='https://storage.googleapis.com/doubleclick-prod/images/offset_comp_237030_1.95b375d5.rectangle-550x462.jpg'>",
+            notes: "Print Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
             subsection: "Email",
-            content: "some email ad content<ul><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li></ul><strong>Bold text is cool</strong>"
+            content: "some email ad content<ul><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li><li>Bullet points</li></ul><strong>Bold text is cool</strong>",
+            notes: "Email Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           }
         ]
       },
@@ -56,15 +60,33 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
         subsections: [
           {
             subsection: "Baseball",
-            content: "some baseball content<br><iframe src='https://www.youtube.com/embed/6Joup252fR0' frameborder='0' allowfullscreen></iframe>"
+            content: "some baseball content<br><iframe src='https://www.youtube.com/embed/6Joup252fR0' frameborder='0' allowfullscreen></iframe>",
+            notes: "Baseball Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
             subsection: "Basketball",
-            content: "some basketball content<br><iframe src='https://www.youtube.com/embed/O1uxFRIdCWo' frameborder='0' allowfullscreen></iframe>"
+            content: "some basketball content<br><iframe src='https://www.youtube.com/embed/O1uxFRIdCWo' frameborder='0' allowfullscreen></iframe>",
+            notes: "Baskeball Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
             subsection: "Soccer",
-            content: "some soccer content<br><iframe src='https://www.youtube.com/embed/mI2dDwWaNUY' frameborder='0' allowfullscreen></iframe>"
+            content: "some soccer content<br><iframe src='https://www.youtube.com/embed/mI2dDwWaNUY' frameborder='0' allowfullscreen></iframe>",
+            notes: "Soccer Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            subsection: "Tennis",
+            content: "some tennis content<br><iframe src='https://www.youtube.com/embed/WyJM9-7OvZo' frameborder='0' allowfullscreen></iframe>",
+            notes: "Tennis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            subsection: "Fishing",
+            content: "some fishing content<br><iframe src='https://www.youtube.com/embed/tYwOaVcyacw' frameborder='0' allowfullscreen></iframe>",
+            notes: "Fishing Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            subsection: "Football",
+            content: "some football content<br><iframe src='https://www.youtube.com/embed/v-1MQ0Cnbhs' frameborder='0' allowfullscreen></iframe>",
+            notes: "Football Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           }
         ]
       }
@@ -82,7 +104,8 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
   $scope.custom = [];
   $scope.link = '';
   $scope.showTitle = true;
-  $scope.customTitle = "Custom content";
+  $scope.customTitle = "Custom presentation";
+  $scope.showExpanded = '';
 
   // allow iframes and other html to be displayed
   $scope.trustAsHtml = $sce.trustAsHtml;
@@ -93,6 +116,7 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
     location.hash = "#";
     document.querySelector('.primary-content').scrollTop = 0;
     $scope.showMenu = false;
+    $scope.showExpanded = '';
   };
 
   // show the parent section in the main content area and scroll down to subsection anchor
@@ -100,19 +124,35 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
     var me = this;
     $scope.primaryContent = this;
     $scope.showMenu = false;
+    $scope.showExpanded = this.sub.subsection;
 
     // wait for menu to close and new content to load before smooth scrolling to subsection
-    setTimeout(function(){
-      var element = document.getElementById(me.sub.subsection.toLowerCase());
+    // setTimeout(function(){
+    //   var element = document.getElementById(me.sub.subsection.toLowerCase());
 
-      var options = {
-          duration: 700,
-          easing: 'easeInQuad',
-          offset: 80,
-          containerId: 'primary-content'
-      }
-      smoothScroll(element, options);
-    }, 300);
+    //   var options = {
+    //       duration: 700,
+    //       easing: 'easeInQuad',
+    //       offset: 80,
+    //       containerId: 'primary-content'
+    //   }
+    //   smoothScroll(element, options);
+    // }, 300);
+  };
+
+  // show expanded view of card
+  $scope.showDetails = function() {
+    $scope.showExpanded = this.i.subsection;
+  };
+
+  // go to prev card
+  $scope.goPrev = function() {
+    $scope.showExpanded = this.$$prevSibling.i.subsection;
+  };
+
+  // go to next card
+  $scope.goNext = function() {
+    $scope.showExpanded = this.$$nextSibling.i.subsection;
   };
 
   // add an item to the custom objects array
@@ -150,14 +190,14 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
   'use strict';
 
   $scope.index = 1;
-
+  $scope.fullscreenCounter = 0;
   $scope.content = dataObject;
   var subsections = [];
   var customContent = [];
   $scope.results = [];
 
   // set page title
-  $scope.customTitle = "Custom content";
+  $scope.customTitle = "Custom presentation";
   $scope.customTitle = $location.search().title.replace(/-/g, ' ');
 
   // allow iframes and other html to be displayed
@@ -200,4 +240,58 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
       $scope.results.move(c, findWithAttr(customContent, 'subsection', $scope.results[c].subsection));
     }
   });
+
+  // go to previous slide
+  $scope.goPrev = function() {
+    $scope.index = $scope.index > 1 ? $scope.index - 1 : 1;
+  };
+
+  // go to next slide
+  $scope.goNext = function() {
+    $scope.index = $scope.index < $scope.results.length ? $scope.index + 1 : $scope.results.length;
+  };
+
+  // change slides when pressing left or right keys
+  $scope.key = function($event){
+    if ($event.keyCode == 39)
+        $scope.goNext();
+    else if ($event.keyCode == 37)
+        $scope.goPrev();
+  }
+
+  // make presentation fullscreen
+  $scope.requestFullScreen = function() {
+    var element = document.body
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+  };
+
+  if (document.addEventListener) {
+    document.addEventListener('webkitfullscreenchange', exitHandler, false);
+    document.addEventListener('mozfullscreenchange', exitHandler, false);
+    document.addEventListener('fullscreenchange', exitHandler, false);
+    document.addEventListener('MSFullscreenChange', exitHandler, false);
+  }
+
+  // show and hide fullscreen icon depending on whether window is fullscreen or not
+  function exitHandler() {
+    if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null) {
+      $scope.fullscreenCounter += 1;
+      if ($scope.fullscreenCounter % 2 === 0) {
+        angular.element(document.querySelector('.fullscreen')).removeClass('ng-hide');
+      } else {
+        angular.element(document.querySelector('.fullscreen')).addClass('ng-hide');
+      }
+    }
+  }
+
 }]);

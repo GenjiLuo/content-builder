@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
-    prefix = require('gulp-autoprefixer');
+    prefix = require('gulp-autoprefixer')
+    rename = require('gulp-rename');
 
 var paths = {
     files: {
@@ -42,9 +43,11 @@ gulp.task('sass', function (){
 });
 
 gulp.task('concat', function (){
-    return gulp.src([paths.files.vendor, './www/js/app.js'])
-        .pipe(concat('all.min.js'))
+    return gulp.src([paths.files.vendor, paths.files.js])
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest(paths.files.scripts))
         .pipe(uglify())
+        .pipe(rename('all.min.js'))
         .pipe(gulp.dest(paths.files.scripts))
 });
 

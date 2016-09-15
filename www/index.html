@@ -7,34 +7,64 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="contentApp" ng-controller="mainController">
+
+  <!-- Header -->
   <header>
     <i class="material-icons hamburger" ng-click="showMenu = true">menu</i>
     <div class="header-title">Content Collection</div>
   </header>
+
+  <!-- Content nav sidebar menu -->
   <div class="sidebar" ng-class="{expanded: showMenu === true}">
     <div class="menu-title">
       Menu
     </div>
     <section ng-repeat="item in content.sections">
-      <div class="section-title" ng-click="showSections()" ng-class="{highlight: item.section === primaryContent.item.section}">{{item.section}}</div>
+      <div class="section-title" ng-click="showSections();" ng-class="{highlight: item.section === primaryContent.item.section}">{{item.section}}</div>
       <div ng-repeat="sub in item.subsections" class="subsection-title" ng-click="showSubsection()">
         {{sub.subsection}}
       </div>
     </section>
   </div>
+
   <div class="overlay" ng-show="showMenu === true" ng-click="showMenu = false"></div>
+
   <main>
     <div class="primary-content" id="primary-content">
       <h2 ng-show="!primaryContent.item.section" class="content-title">Content</h2>
       <p ng-show="!primaryContent.item.section" class="placeholder-text">Select content from the sidebar to start building a presentation</p>
-      <h2 class="content-title">{{primaryContent.item.section}}</h2>
-      <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}">
-        <h3 class="subsection-title">{{i.subsection}}</h3>
-        <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
 
-        <div class="add-custom" ng-click="addToCustom(); i.disabled = true;" ng-class="{disabled: i.disabled === true}">+</div>
+      <!-- Category title -->
+      <h2 class="content-title" ng-class="{hidden: showExpanded !== ''}">{{primaryContent.item.section}}</h2>
+
+      <!-- Slide -->
+      <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}" ng-class="{expanded: showExpanded === i.subsection}" ng-show="showExpanded === '{{i.subsection}}' || showExpanded === ''">
+        <div class="content-holder" ng-click="showDetails()">
+          <h3 class="subsection-title">{{i.subsection}}</h3>
+          <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
+          <div class="notes" ng-show="showExpanded === '{{i.subsection}}'">
+            {{i.notes}}
+          </div>
+        </div>
+
+        <!-- Next and previous controls that show up when on expanded slide view -->
+        <div class="controls">
+          <div class="prev" ng-show="showExpanded === '{{i.subsection}}' && primaryContent.item.subsections[$index-1].subsection" ng-click="goPrev()">
+            <i class="material-icons">arrow_back</i> Prev
+            <div ng-bind="primaryContent.item.subsections[$index-1].subsection" class="control-title"></div>
+          </div>
+          <div class="next" ng-show="showExpanded === '{{i.subsection}}' && primaryContent.item.subsections[$index+1].subsection" ng-click="goNext()">
+            Next <i class="material-icons">arrow_forward</i>
+            <div ng-bind="primaryContent.item.subsections[$index+1].subsection" class="control-title"></div>
+          </div>
+        </div>
+
+        <!-- Buttom to add current slide to custom presentation -->
+        <div class="add-custom" ng-click="addToCustom(); i.disabled = true;" ng-class="{disabled: i.disabled === true}" ng-show="showExpanded === '{{i.subsection}}'">+</div>
       </div>
     </div>
+
+    <!-- custom presentation sidebar -->
     <div class="custom-content">
       <h3 ng-show="custom.length > 0 && showTitle === true" class="custom-content-title" ng-click="showTitle = false">{{customTitle}}</h3>
       <i ng-show="custom.length > 0 && showTitle === true" class="material-icons" ng-click="showTitle = false">create</i>
@@ -48,6 +78,8 @@
         Show Custom Link
       </button>
     </div>
+
+    <!-- Modal that shows link to custom presentation -->
     <div class="link-modal" ng-show="modalActive === true">
       <div class="close-modal" ng-click="modalActive = false"><i class="material-icons">close</i></div>
       <h3>Your custom link:</h3>
@@ -58,7 +90,9 @@
         </button>
       </a>
     </div>
+
     <div class="overlay" ng-show="modalActive === true" ng-click="modalActive = false"></div>
+
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
