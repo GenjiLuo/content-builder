@@ -244,8 +244,6 @@ html {
 
         .content-section {
           @extend %transition;
-          background: $color-white;
-          box-shadow: 0 0 12px 2px rgba(0,0,0,0.1);
           box-sizing: border-box;
           cursor: pointer;
           display: block;
@@ -258,7 +256,6 @@ html {
           width: 95%;
 
           &:hover {
-            box-shadow: 0 0 18px 2px rgba(0,0,0,0.15);
             transform: scale(1.01);
           }
 
@@ -283,9 +280,38 @@ html {
             transform: translateY(-40px);
 
             &:hover {
-              box-shadow: 0 0 12px 2px rgba(0,0,0,0.1);
               transform: translateY(-40px);
             }
+
+            // card slide
+              .card-slide {
+                .card-holder {
+                  .card {
+                    @include tablet {
+                      width: 47% !important;
+                    }
+
+                    @include desktop {
+                      width: 30% !important;
+                    }
+                  }
+                }
+              }
+
+            // stat slide
+              .stat-slide {
+                .card-holder {
+                  .card {
+                    @include tablet {
+                      width: 47% !important;
+                    }
+
+                    @include desktop {
+                      width: 30% !important;
+                    }
+                  }
+                }
+              }
 
             .slide-inner {
               height: auto;
@@ -331,12 +357,31 @@ html {
             margin-bottom: 0;
           }
 
+          .tint {
+            background: rgba(0,0,0,0.7);
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+          }
+
           .slide-inner {
+            background: $color-white;
+            box-shadow: 0 0 12px 2px rgba(0,0,0,0.1);
             position: relative;
 
             .subsection-title {
+              color: $color-white;
+              left: 0;
               margin-top: 0;
               padding: 20px 20px 0 20px;
+              position: absolute;
+              text-shadow: 2px 2px rgba(0,0,0,0.5);
+              top: 0;
+              z-index: 1;
             }
 
             .content-main {
@@ -385,7 +430,7 @@ html {
                     box-sizing: border-box;
                     color: $color-grey-darker;
                     display: inline-block;
-                    margin: 0 10px 10px 0;
+                    margin: 0 10px 30px 0;
                     padding: 30px 15px 0 15px;
                     position: relative;
                     vertical-align: top;
@@ -397,11 +442,12 @@ html {
 
                     @include tablet {
                       height: 215px;
+                      margin: 0 10px 10px 0;
                       width: 47%;
                     }
 
                     @include desktop {
-                      width: 30%;
+                      width: 100%;
 
                       &:last-of-type {
                         margin-bottom: 0;
@@ -432,6 +478,14 @@ html {
 
               // stat slide
               .stat-slide {
+
+                &.three-stats {
+                  .headline {
+                    @include desktop {
+                      padding: 8% 10% 4% 10%;
+                    }
+                  }
+                }
                 .headline {
                   color: $color-grey-darker;
                   font-size: 20px;
@@ -478,7 +532,7 @@ html {
                     }
 
                     @include desktop {
-                      width: 30%;
+                      width: 100%;
 
                       &:last-of-type {
                         margin-bottom: 0;
@@ -622,15 +676,14 @@ html {
             @extend %transition;
             background: $color-red-dark;
             border-radius: 50%;
-            bottom: -73px;
             box-shadow: 0 0 7px 2px rgba(0,0,0,0.2);
             color: $color-white;
             cursor: pointer;
             font-size: 24px;
-            left: 50%;
-            margin-left: -30px;
             padding: 10px 20px;
             position: absolute;
+            right: -28px;
+            top: 100px;
             transition-property: box-shadow, transform;
 
             &:hover {
@@ -731,6 +784,10 @@ html {
                 color: darken($color-grey, 10%);
               }
             }
+            .custom-section-title {
+              display: inline-block;
+              width: 80%;
+            }
           }
         }
       }
@@ -791,9 +848,9 @@ html {
     }
 
     main {
+      height: 100%;
       margin: 0 auto;
-      max-width: 1144px;
-      padding-bottom: 30px;
+      max-width: 1600px;
 
       ul {
         height: 91vh;
@@ -801,23 +858,20 @@ html {
         padding: 0;
         position: relative;
 
+        &.full {
+          height: 100vh;
+        }
+
         .result-section {
           background: $color-white;
-          // border: 1px solid rgba(0,0,0,0.2);
           box-sizing: border-box;
           height: 100%;
           list-style-type: none;
           margin: 5px 0 -5px 0;
           overflow: hidden;
-          padding: 10px;
           position: absolute;
           -webkit-transition: left 0.3s ease-out;
           width: 100%;
-
-          &:last-of-type {
-            // box-shadow: 0 15px 18px 2px rgba(0,0,0,0.1);
-          }
-
 
           &.card-hide {
             left: -100vw !important;
@@ -828,13 +882,314 @@ html {
           }
 
           .content-main {
-            height: 92%;
+            height: 100%;
 
-            iframe {
-              display: block;
-              height: 92%;
-              margin: 10px auto;
-              width: 100%;
+            // video slide
+            .video-slide {
+              height: 100%;
+
+              iframe {
+                display: block;
+                height: 100%;
+                margin: 0 auto;
+                width: 100%;
+              }
+            }
+
+            // card slide
+            .card-slide {
+              .headline {
+                color: $color-grey-darker;
+                font-size: 20px;
+                margin: 0;
+                padding: 30px 10% 20px 10%;
+
+                @include tablet {
+                  font-size: 24px;
+                }
+                @include desktop {
+                  font-size: 28px;
+                  padding: 8% 10% 4% 10%;
+                }
+              }
+              .card-holder {
+                margin: 0 auto;
+                width: 95%;
+
+                @include tablet {
+                  width: 90%;
+                }
+                @include desktop {
+                  width: 80%;
+                }
+
+                .card {
+                  border-top: 4px solid $color-blue-dark;
+                  box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
+                  box-sizing: border-box;
+                  color: $color-grey-darker;
+                  display: inline-block;
+                  margin: 0 10px 30px 0;
+                  padding: 30px 15px 0 15px;
+                  position: relative;
+                  vertical-align: top;
+                  width: 100%;
+
+                  &:last-of-type {
+                    margin-bottom: 30px;
+                  }
+
+                  @include tablet {
+                    height: 215px;
+                    margin: 0 10px 10px 0;
+                    width: 47%;
+                  }
+
+                  @include desktop {
+                    width: 30%;
+
+                    &:last-of-type {
+                      margin-bottom: 0;
+                    }
+                  }
+
+                  .material-icons {
+                    background: $color-white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
+                    height: 50px;
+                    left: 20px;
+                    line-height: 50px;
+                    position: absolute;
+                    text-align: center;
+                    top: -20px;
+                    width: 50px;
+                  }
+
+                  p {
+                    strong {
+                      color: $color-blue-dark;
+                    }
+
+                    @include tablet {
+                      font-size: 16px;
+                    }
+
+                    @include desktop {
+                      font-size: 18px;
+                    }
+                  }
+                }
+              }
+            }
+
+            // stat slide
+            .stat-slide {
+
+              &.three-stats {
+                .headline {
+                  @include desktop {
+                    padding: 8% 10% 4% 10%;
+                  }
+                }
+              }
+              .headline {
+                color: $color-grey-darker;
+                font-size: 20px;
+                margin: 0;
+                padding: 30px 10% 20px 10%;
+
+                @include tablet {
+                  font-size: 24px;
+                }
+                @include desktop {
+                  font-size: 28px;
+                  padding: 6% 10% 4% 10%;
+                }
+              }
+              .card-holder {
+                margin: 0 auto;
+                width: 95%;
+
+                @include tablet {
+                  width: 90%;
+                }
+                @include desktop {
+                  width: 80%;
+                }
+
+                .card {
+                  border-top: 4px solid $color-blue-dark;
+                  box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
+                  box-sizing: border-box;
+                  color: $color-grey-darker;
+                  display: inline-block;
+                  margin: 0 10px 10px 0;
+                  padding: 30px 15px 0 15px;
+                  position: relative;
+                  vertical-align: top;
+                  width: 100%;
+
+                  &:last-of-type {
+                    margin-bottom: 30px;
+                  }
+
+                  @include tablet {
+                    height: 180px;
+                    width: 47%;
+                  }
+
+                  @include desktop {
+                    width: 30%;
+
+                    &:last-of-type {
+                      margin-bottom: 0;
+                    }
+                  }
+
+                  .stat {
+                    background: $color-blue-dark;
+                    border-radius: 50%;
+                    box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
+                    color: $color-white;
+                    display: inline-block;
+                    font-size: 23px;
+                    height: 60px;
+                    line-height: 60px;
+                    margin-right: 20px;
+                    margin-top: -13px;
+                    text-align: center;
+                    vertical-align: top;
+                    width: 60px;
+
+                    @include tablet {
+                      height: 80px;
+                      line-height: 80px;
+                      margin-top: 0;
+                      width: 80px;
+                    }
+                  }
+                  p {
+                    color: $color-grey-dark;
+                    display: inline-block;
+                    margin-top: 0;
+                    vertical-align: top;
+                    width: 50%;
+
+                    @include tablet {
+                      font-size: 18px;
+                      margin-top: 15px;
+                    }
+                  }
+                }
+              }
+            }
+
+            // card image slide
+            .card-image-slide {
+              height: 730px;
+
+              @include tablet {
+                height: auto;
+              }
+
+              .left {
+                display: inline-block;
+                vertical-align: top;
+                width: 100%;
+
+                @include tablet {
+                  width: 60%;
+                }
+
+                .headline {
+                  color: $color-grey-darker;
+                  font-size: 20px;
+                  margin: 0;
+                  padding: 30px 10% 20px 10%;
+
+                  @include tablet {
+                    font-size: 24px;
+                  }
+                  @include desktop {
+                    font-size: 28px;
+                    padding: 10% 10% 4% 10%;
+                  }
+                }
+                .card {
+                  border-top: 4px solid $color-blue-dark;
+                  box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
+                  box-sizing: border-box;
+                  color: $color-grey-darker;
+                  display: block;;
+                  margin: 0 auto 0 auto;
+                  max-height: 300px;
+                  min-height: 200px;
+                  padding: 0 15px 2px 15px;
+                  position: relative;
+                  vertical-align: top;
+                  width: 90%;
+
+                  @include tablet {
+                    margin-bottom: 60px;
+                  }
+
+                  @include desktop {
+                    margin-bottom: 10px;
+                  }
+
+                  .subheadline {
+                    color: $color-blue-dark;
+                    font-weight: 400;
+                    margin-bottom: 10px;
+
+                    @include tablet {
+                      font-size: 20px;
+                    }
+                    @include desktop {
+                      font-size: 22px;
+                    }
+                  }
+                  .arrow-points {
+                    margin-top: 10px;
+                    padding-left: 25px;
+
+                    @include tablet {
+                      font-size: 16px;
+                    }
+                    @include desktop {
+                      font-size: 18px;
+                    }
+
+                    &:last-of-type {
+                      margin-bottom: 15px;
+                    }
+
+                    li {
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+              }
+
+              .right {
+                display: inline-block;
+                padding-top: 20px;
+                vertical-align: top;
+                width: 100%;
+
+                @include tablet {
+                  width: 35%;
+                }
+
+                img {
+                  width: 60%;
+
+                  @include tablet {
+                    width: auto;
+                  }
+                }
+              }
             }
 
             img {
@@ -842,8 +1197,19 @@ html {
               margin: 10px auto;
               width: 65vw;
             }
-          }
 
+          }
+        }
+        .slide-footer {
+          bottom: 10px;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          z-index: 99;
+
+          @include tablet {
+            bottom: 0;
+          }
         }
       }
     }
@@ -856,6 +1222,10 @@ html {
       position: absolute;
       width: 100%;
       z-index: 99;
+
+      &.hide {
+        display: none;
+      }
 
       .controls-inner {
         margin: 0 auto;

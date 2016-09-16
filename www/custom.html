@@ -11,11 +11,12 @@
     <i class="material-icons">fullscreen</i>
   </div>
   <main>
-    <ul ng-swipe-left="index = index > 1 ? index - 1 : 1" ng-swipe-right="index = index < results.length ? index + 1 : results.length">
+    <ul ng-swipe-left="index = index > 1 ? index - 1 : 1" ng-swipe-right="index = index < results.length ? index + 1 : results.length" class="slide-holder">
       <li ng-repeat="i in results" class="result-section" ng-class="{'card-hide': index  > $index + 1}" ng-style="{left: 0 * $index + 'px', top: 0 * $index + 'px', 'z-index': (results.length - $index)}">
-        <h3 class="content-header">{{i.subsection}}</h3>
+        <!--<h3 class="content-header">{{i.subsection}}</h3>-->
         <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
       </li>
+      <img src="img/android-footer.png" class="slide-footer" alt="footer">
     </ul>
   </main>
   <div class="controls">

@@ -44,6 +44,7 @@
 
       <!-- Slide -->
       <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}" ng-class="{expanded: showExpanded === i.subsection}" ng-show="showExpanded === '{{i.subsection}}' || showExpanded === ''">
+        <div class="tint" ng-show="showExpanded !== '{{i.subsection}}'"></div>
         <div class="content-holder" ng-click="showDetails()">
           <div class="slide-inner">
             <h3 class="subsection-title" ng-show="showExpanded !== '{{i.subsection}}'">{{i.subsection}}</h3>
@@ -52,7 +53,7 @@
           </div>
           <h3 class="subsection-title-lower" ng-show="showExpanded === '{{i.subsection}}'">{{i.subsection}}</h3>
           <div class="notes" ng-show="showExpanded === '{{i.subsection}}'">
-            {{i.notes}}
+            <strong>Notes:</strong> {{i.notes}}
           </div>
         </div>
 
@@ -80,7 +81,7 @@
       <input ng-show="custom.length > 0 && showTitle === false" class="custom-content-title-editor" ng-blur="showTitle = true" ng-model="customTitle"></input>
       <ul sv-root sv-part="custom">
         <li class="custom-section" ng-repeat="part in custom" sv-element>
-          <span class="remove-section" ng-click="removeSection(part)">&times;</span> <span>{{part.i.subsection}}</span>
+          <div class="remove-section" ng-click="removeSection(part)">&times;</div> <div class="custom-section-title">{{part.i.subsection}}</div>
         </li>
       </ul>
       <button class="show-link button" ng-show="custom.length > 0" ng-click="showLink()">
