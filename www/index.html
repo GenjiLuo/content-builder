@@ -45,8 +45,12 @@
       <!-- Slide -->
       <div ng-repeat="i in primaryContent.item.subsections" class="content-section" id="{{i.subsection | lowercase}}" ng-class="{expanded: showExpanded === i.subsection}" ng-show="showExpanded === '{{i.subsection}}' || showExpanded === ''">
         <div class="content-holder" ng-click="showDetails()">
-          <h3 class="subsection-title">{{i.subsection}}</h3>
-          <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
+          <div class="slide-inner">
+            <h3 class="subsection-title" ng-show="showExpanded !== '{{i.subsection}}'">{{i.subsection}}</h3>
+            <div ng-bind-html="trustAsHtml(i.content)" class="content-main"></div>
+            <img src="img/android-footer.png" class="slide-footer" alt="footer">
+          </div>
+          <h3 class="subsection-title-lower" ng-show="showExpanded === '{{i.subsection}}'">{{i.subsection}}</h3>
           <div class="notes" ng-show="showExpanded === '{{i.subsection}}'">
             {{i.notes}}
           </div>
@@ -82,9 +86,9 @@
       <button class="show-link button" ng-show="custom.length > 0" ng-click="showLink()">
         Show Custom Link
       </button>
-      <button class="save button" ng-show="custom.length > 0" ng-click="saveCollection()">
+      <!-- <button class="save button" ng-show="custom.length > 0" ng-click="saveCollection()">
         Save Collection
-      </button>
+      </button> -->
     </div>
 
     <!-- Modal that shows link to custom presentation -->

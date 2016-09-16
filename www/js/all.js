@@ -1764,14 +1764,14 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
         section: "General",
         subsections: [
           {
-            subsection: "Typography",
-            content: "some typography content<br><iframe src='https://docs.google.com/presentation/d/1yTyEpqX3--enNQs5xWxl25ebEbmyrQnpsAmOlDahJZo/embed?start=false&loop=false&delayms=3000' frameborder='0' allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>",
-            notes: "Typography Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            subsection: "Android Mobile Solutions",
+            content: "<div class='card-slide'><h3 class='headline'>Android Mobile Solutions Power Next Generation Business Transformation:</h3><div class='card-holder'><div class='card small'><i class='material-icons'>group</i><p>Improve efficiency and collaboration by <strong>completely connecting kand untethering</strong> your dispersed workforce.</p></div><div class='card small'><i class='material-icons'>trending_up</i><p>Increase confidence, control, and cost savings by <strong>unifying security and management</strong> for every device and every screen.</p></div><div class='card small'><i class='material-icons'>device_hub</i><p>Enable fast, proactive, and strategic decision making by <strong>digitizing processes</strong> and <strong>connecting to data and insights.</strong></p></div></div></div>",
+            notes: "Android mobile solutions is lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
           },
           {
-            subsection: "Colors",
-            content: "<p>Lots of text about some things and some other things</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>",
-            notes: "Colors Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            subsection: "Worlds Biggest OS",
+            content: "<div class='stat-slide'><h3 class='headline'>Android, the World's Biggest OS</h3><div class='card-holder'><div class='card small'><div class='stat'>81%</div><p>of the world's mobile devices</p></div><div class='card small'><div class='stat'>500+</div><p>operator partnerships</p></div><div class='card small'><div class='stat'>1.5M</div><p>Android devices activated daily</p></div><div class='card small'><div class='stat'>1.4B+</div><p>30-day active users</p></div><div class='card small'><div class='stat'>400+</div><p>OEMs developing for Android</p></div><div class='card small'><div class='stat'>45%</div><p>share of U.S. corporate purchased smartphones</p></div></div></div>",
+            notes: "World's biggest OS by lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
           }
         ]
       },
@@ -1796,37 +1796,22 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
         ]
       },
       {
-        section: "Sports",
+        section: "Security",
         subsections: [
           {
-            subsection: "Baseball",
-            content: "some baseball content<br><iframe src='https://www.youtube.com/embed/6Joup252fR0' frameborder='0' allowfullscreen></iframe>",
-            notes: "Baseball Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            subsection: "New in Android N",
+            content: "<div class='video-slide'><iframe src='https://www.youtube.com/embed/CsulIu3UaUM' frameborder='0' allowfullscreen></iframe></div>",
+            notes: "New in Android N and lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
-            subsection: "Basketball",
-            content: "some basketball content<br><iframe src='https://www.youtube.com/embed/O1uxFRIdCWo' frameborder='0' allowfullscreen></iframe>",
-            notes: "Baskeball Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            subsection: "Continued Investment",
+            content: "<div class='card-image-slide'><div class='left'><h3 class='headline'>Continued Google Investment in Security Programs</h3><div class='card large'><h4 class='subheadline'>Security Reward Program:</h4><ul class='arrow-points'><li>Reports from 35 researchers have helped make Android security stronger.</li><li>More than one third or reports were made in Media Server, which has been hardened to resist vulnerabilities.</li></ul><h4 class='subheadline'>OEM Programs:</h4><ul class='arrow-points'><li>CTS Test</li><li>CDD Compatibility</li></ul></div></div><div class='right'><img src='img/phone-security.png' alt='security'></div></div>",
+            notes: "Security investment of lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
-            subsection: "Soccer",
-            content: "some soccer content<br><iframe src='https://www.youtube.com/embed/mI2dDwWaNUY' frameborder='0' allowfullscreen></iframe>",
-            notes: "Soccer Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            subsection: "Tennis",
-            content: "some tennis content<br><iframe src='https://www.youtube.com/embed/WyJM9-7OvZo' frameborder='0' allowfullscreen></iframe>",
-            notes: "Tennis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            subsection: "Fishing",
-            content: "some fishing content<br><iframe src='https://www.youtube.com/embed/tYwOaVcyacw' frameborder='0' allowfullscreen></iframe>",
-            notes: "Fishing Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            subsection: "Football",
-            content: "some football content<br><iframe src='https://www.youtube.com/embed/v-1MQ0Cnbhs' frameborder='0' allowfullscreen></iframe>",
-            notes: "Football Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            subsection: "Continual Updates",
+            content: "<div class='card-image-slide'><div class='left'><h3 class='headline'>Continual Updates</h3><div class='card large'><h4 class='subheadline'>SafetyNet:</h4><ul class='arrow-points'><li>400 million device scans a day</li><li>6 billion apps checked per day</li></ul></div></div><div class='right'><img src='img/phone-updates.png' alt='continual updates'></div></div>",
+            notes: "Continual updates in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           }
         ]
       }
@@ -1906,7 +1891,7 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
   $scope.showLink = function() {
     $scope.link = 'http://' + location.host + '/custom.html?custom=';
     for (var i = 0; i < $scope.custom.length; i++) {
-      $scope.link += $scope.custom[i].i.subsection + ',';
+      $scope.link += $scope.custom[i].i.subsection.replace(/ /g, '-') + ',';
     }
     $scope.link = $scope.link.substring(0, $scope.link.length - 1);
     $scope.link += ('&title=' + $scope.customTitle.replace(/ /g,'-'));
@@ -2003,14 +1988,16 @@ angular.module('contentApp', ['ngSanitize', 'angular-sortable-view', 'smoothScro
 
   // create new array of values from query string
   var customSections = $location.search().custom.split(',');
+  console.log('section', customSections);
   for (var n = 0; n < customSections.length; n++) {
-    customContent.push({'subsection': customSections[n]});
+    customContent.push({'subsection': customSections[n].replace(/-/g, ' ')});
+    console.log('content', customContent);
   }
 
   // filter array of subsections and create new array with objects that match the query string
   subsections.filter(function( obj ) {
     for (var y = 0; y < customSections.length; y++) {
-      if (obj.subsection == customSections[y]) {
+      if (obj.subsection == customSections[y].replace(/-/g, ' ')) {
         $scope.results.push(obj);
       }
     }
